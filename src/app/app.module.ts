@@ -1,3 +1,5 @@
+import { SharedService } from './services/shared.service';
+import { UserService } from './services/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -7,6 +9,10 @@ import { MenuComponent } from './component/menu/menu.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/security/login/login.component';
+import { routes } from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -19,8 +25,11 @@ import { LoginComponent } from './component/security/login/login.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    routes
   ],
-  providers: [],
+  providers: [UserService,SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
